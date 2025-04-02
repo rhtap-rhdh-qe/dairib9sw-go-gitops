@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: dairib9sw-go
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dairib9sw-go 
+  name: dairib9sw-go
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: dairib9sw-go
+    weight: 100 
